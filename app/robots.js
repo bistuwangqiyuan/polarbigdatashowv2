@@ -38,8 +38,8 @@ export default function robots() {
                 crawlDelay: 0,
             },
         ],
-        sitemap: 'https://polarbigdatashow.netlify.app/sitemap.xml',
-        host: 'https://polarbigdatashow.netlify.app',
+        sitemap: 'https://polarbigdatashowv2.netlify.app/sitemap.xml',
+        host: 'https://polarbigdatashowv2.netlify.app',
     };
 }
 

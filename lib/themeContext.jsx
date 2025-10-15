@@ -55,19 +55,26 @@ export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState('dark')
 
   useEffect(() => {
-    // 从localStorage读取保存的主题
-    const savedTheme = localStorage.getItem('theme') || 'dark'
-    setTheme(savedTheme)
-    applyTheme(savedTheme)
+    // 从localStorage读取保存的主题（仅在客户端）
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme') || 'dark'
+      setTheme(savedTheme)
+      applyTheme(savedTheme)
+    }
   }, [])
 
   const changeTheme = (newTheme) => {
     setTheme(newTheme)
-    localStorage.setItem('theme', newTheme)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', newTheme)
+    }
     applyTheme(newTheme)
   }
 
   const applyTheme = (themeName) => {
+    // 仅在客户端应用主题
+    if (typeof window === 'undefined') return
+    
     const themeConfig = themes[themeName] || themes.dark
     const root = document.documentElement
 
