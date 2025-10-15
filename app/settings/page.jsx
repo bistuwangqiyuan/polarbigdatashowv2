@@ -6,6 +6,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useTheme } from '../../lib/themeContext'
 
+// 禁用静态生成，因为此页面需要客户端上下文
+export const dynamic = 'force-dynamic'
+
 export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState('general')
   const [showLogs, setShowLogs] = useState(false)

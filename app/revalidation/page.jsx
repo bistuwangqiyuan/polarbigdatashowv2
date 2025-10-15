@@ -7,6 +7,9 @@ export const metadata = {
     title: 'On-Demand Revalidation'
 };
 
+// 禁用静态生成，因为此页面需要在运行时获取外部数据
+export const dynamic = 'force-dynamic';
+
 const tagName = 'randomWiki';
 const randomWikiUrl = 'https://en.wikipedia.org/api/rest_v1/page/random/summary';
 const maxExtractLength = 200;
